@@ -1,0 +1,76 @@
+<div>
+    <h2>Atendimentos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="atendimento.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Atendimento
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Data</span></th>
+                    <th><span>Descricao</span></th>
+                    <th><span>Prescricao</span></th>
+                    <th><span>Tipo Atendimento</span></th>
+                    <th><span>Classificacao Risco</span></th>
+                    <th><span>Medico</span></th>
+                    <th><span>Enfermeiro</span></th>
+                    <th><span>Paciente</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="atendimento in vm.atendimentos track by atendimento.id">
+                    <td><a ui-sref="atendimento-detail({id:atendimento.id})">{{atendimento.id}}</a></td>
+                    <td>{{atendimento.data | date:'medium'}}</td>
+                    <td>{{atendimento.descricao}}</td>
+                    <td>{{atendimento.prescricao}}</td>
+                    <td>{{atendimento.tipoAtendimento}}</td>
+                    <td>{{atendimento.classificacaoRisco}}</td>
+                    <td>
+                        <a ui-sref="medico-detail({id:atendimento.medicoId})">{{atendimento.medicoId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="enfermeiro-detail({id:atendimento.enfermeiroId})">{{atendimento.enfermeiroId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="paciente-detail({id:atendimento.pacienteId})">{{atendimento.pacienteId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="atendimento-detail({id:atendimento.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="atendimento.edit({id:atendimento.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="atendimento.delete({id:atendimento.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

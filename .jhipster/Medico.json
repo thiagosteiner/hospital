@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "atendimento",
+            "otherEntityName": "atendimento",
+            "otherEntityRelationshipName": "medico"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "exame",
+            "otherEntityName": "exame",
+            "otherEntityRelationshipName": "medico"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "paciente",
+            "otherEntityName": "paciente",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "medico"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "crm",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "especialidade",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170307050601",
+    "entityTableName": "medico",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no"
+}

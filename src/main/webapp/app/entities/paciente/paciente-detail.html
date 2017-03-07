@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Paciente</span> {{vm.paciente.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span>Cpf</span></dt>
+        <dd>
+            <span>{{vm.paciente.cpf}}</span>
+        </dd>
+        <dt><span>Nome</span></dt>
+        <dd>
+            <span>{{vm.paciente.nome}}</span>
+        </dd>
+        <dt><span>Plano Saude</span></dt>
+        <dd>
+            <span>{{vm.paciente.planoSaude}}</span>
+        </dd>
+        <dt><span>Endereco</span></dt>
+        <dd>
+            <span>{{vm.paciente.endereco}}</span>
+        </dd>
+        <dt><span>Medico</span></dt>
+        <dd>
+            <span ng-repeat="medico in vm.paciente.medicos">
+                <a ui-sref="medico-detail({id: medico.id})">{{medico.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Enfermeiro</span></dt>
+        <dd>
+            <span ng-repeat="enfermeiro in vm.paciente.enfermeiros">
+                <a ui-sref="enfermeiro-detail({id: enfermeiro.id})">{{enfermeiro.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="paciente-detail.edit({id:vm.paciente.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

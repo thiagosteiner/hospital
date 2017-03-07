@@ -1,0 +1,11 @@
+version: '2'
+services:
+    hospital-postgresql:
+        image: postgres:9.5.4
+        # volumes:
+        #     - ~/volumes/jhipster/hospital/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=hospital
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432

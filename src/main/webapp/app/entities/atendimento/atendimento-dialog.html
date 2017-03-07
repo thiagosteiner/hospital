@@ -1,0 +1,91 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAtendimentoLabel">Create or edit a Atendimento</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.atendimento.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.atendimento.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_data">Data</label>
+                <div class="input-group">
+                    <input id="field_data" type="text" class="form-control" name="data" datetime-picker="{{dateformat}}" ng-model="vm.atendimento.data" is-open="vm.datePickerOpenStatus.data"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('data')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_descricao">Descricao</label>
+            <input type="text" class="form-control" name="descricao" id="field_descricao"
+                    ng-model="vm.atendimento.descricao"
+                    required/>
+            <div ng-show="editForm.descricao.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.descricao.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_prescricao">Prescricao</label>
+            <input type="text" class="form-control" name="prescricao" id="field_prescricao"
+                    ng-model="vm.atendimento.prescricao"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_tipoAtendimento">Tipo Atendimento</label>
+            <select class="form-control" name="tipoAtendimento" ng-model="vm.atendimento.tipoAtendimento" id="field_tipoAtendimento">
+                <option value="EMERGENCIA">EMERGENCIA</option>
+                <option value="INTERNACAO">INTERNACAO</option>
+                <option value="UTI">UTI</option>
+                <option value="AMBULATORIO">AMBULATORIO</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_classificacaoRisco">Classificacao Risco</label>
+            <select class="form-control" name="classificacaoRisco" ng-model="vm.atendimento.classificacaoRisco" id="field_classificacaoRisco">
+                <option value="VERMELHO">VERMELHO</option>
+                <option value="LARANJA">LARANJA</option>
+                <option value="AMARELO">AMARELO</option>
+                <option value="VERDE">VERDE</option>
+                <option value="AZUL">AZUL</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="field_medico">Medico</label>
+            <select class="form-control" id="field_medico" name="medico" ng-model="vm.atendimento.medicoId" ng-options="medico.id as medico.id for medico in vm.medicos"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_enfermeiro">Enfermeiro</label>
+            <select class="form-control" id="field_enfermeiro" name="enfermeiro" ng-model="vm.atendimento.enfermeiroId" ng-options="enfermeiro.id as enfermeiro.id for enfermeiro in vm.enfermeiros"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_paciente">Paciente</label>
+            <select class="form-control" id="field_paciente" name="paciente" ng-model="vm.atendimento.pacienteId" ng-options="paciente.id as paciente.id for paciente in vm.pacientes"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

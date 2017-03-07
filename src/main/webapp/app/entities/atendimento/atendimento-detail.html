@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span>Atendimento</span> {{vm.atendimento.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span>Data</span></dt>
+        <dd>
+            <span>{{vm.atendimento.data | date:'medium'}}</span>
+        </dd>
+        <dt><span>Descricao</span></dt>
+        <dd>
+            <span>{{vm.atendimento.descricao}}</span>
+        </dd>
+        <dt><span>Prescricao</span></dt>
+        <dd>
+            <span>{{vm.atendimento.prescricao}}</span>
+        </dd>
+        <dt><span>Tipo Atendimento</span></dt>
+        <dd>
+            <span>{{vm.atendimento.tipoAtendimento}}</span>
+        </dd>
+        <dt><span>Classificacao Risco</span></dt>
+        <dd>
+            <span>{{vm.atendimento.classificacaoRisco}}</span>
+        </dd>
+        <dt><span>Medico</span></dt>
+        <dd>
+            <a ui-sref="medico-detail({id:vm.atendimento.medicoId})">{{vm.atendimento.medicoId}}</a>
+        </dd>
+        <dt><span>Enfermeiro</span></dt>
+        <dd>
+            <a ui-sref="enfermeiro-detail({id:vm.atendimento.enfermeiroId})">{{vm.atendimento.enfermeiroId}}</a>
+        </dd>
+        <dt><span>Paciente</span></dt>
+        <dd>
+            <a ui-sref="paciente-detail({id:vm.atendimento.pacienteId})">{{vm.atendimento.pacienteId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="atendimento-detail.edit({id:vm.atendimento.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

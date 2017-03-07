@@ -1,0 +1,63 @@
+
+entity Paciente{
+	cpf String required,
+    nome String required,
+    planoSaude String,
+    endereco String        
+}
+
+entity Medico{
+	crm String required,
+    nome String required,
+    especialidade String
+}
+
+entity Enfermeiro{
+	cre String required,
+    nome String required,
+    tipoEnfermeiro TipoEnfermeiro
+}
+
+entity Atendimento {
+	data ZonedDateTime,
+    descricao String required,
+    prescricao String,
+    tipoAtendimento TipoAtendimento,
+    classificacaoRisco ClassificacaoRisco
+ }
+
+entity Exame {
+	nome String required,
+    laudo String,
+    dataSolicitacao ZonedDateTime,
+    dataLaudo ZonedDateTime
+}
+
+enum TipoAtendimento{
+EMERGENCIA, INTERNACAO, UTI, AMBULATORIO
+}
+
+enum TipoEnfermeiro{
+BACHAREL, TECNICO, AUXILIAR
+}
+
+enum ClassificacaoRisco{
+VERMELHO, LARANJA, AMARELO, VERDE, AZUL
+}
+
+
+relationship OneToMany {
+	Medico{atendimento} to Atendimento{medico},
+   	Enfermeiro{atendimento} to Atendimento{enfermeiro},
+	Paciente{atendimento} to Atendimento{paciente},
+	Atendimento{exame} to Exame{atendimento},
+	Paciente{exame} to Exame{paciente},
+	Medico{exame} to Exame{medico}  
+ }
+
+relationship ManyToMany {
+ Paciente{medico} to Medico{paciente},
+ Paciente{enfermeiro} to Enfermeiro{paciente}
+}
+
+dto all with mapstruct

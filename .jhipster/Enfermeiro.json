@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "atendimento",
+            "otherEntityName": "atendimento",
+            "otherEntityRelationshipName": "enfermeiro"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "paciente",
+            "otherEntityName": "paciente",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "enfermeiro"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "cre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tipoEnfermeiro",
+            "fieldType": "TipoEnfermeiro",
+            "fieldValues": "BACHAREL,TECNICO,AUXILIAR"
+        }
+    ],
+    "changelogDate": "20170307050601",
+    "entityTableName": "enfermeiro",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no"
+}

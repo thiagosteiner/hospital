@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Enfermeiro</span> {{vm.enfermeiro.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span>Cre</span></dt>
+        <dd>
+            <span>{{vm.enfermeiro.cre}}</span>
+        </dd>
+        <dt><span>Nome</span></dt>
+        <dd>
+            <span>{{vm.enfermeiro.nome}}</span>
+        </dd>
+        <dt><span>Tipo Enfermeiro</span></dt>
+        <dd>
+            <span>{{vm.enfermeiro.tipoEnfermeiro}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="enfermeiro-detail.edit({id:vm.enfermeiro.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

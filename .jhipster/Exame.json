@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "atendimento",
+            "otherEntityName": "atendimento",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "paciente",
+            "otherEntityName": "paciente",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "medico",
+            "otherEntityName": "medico",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "laudo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataSolicitacao",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "dataLaudo",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20170307050601",
+    "entityTableName": "exame",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Medico</span> {{vm.medico.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span>Crm</span></dt>
+        <dd>
+            <span>{{vm.medico.crm}}</span>
+        </dd>
+        <dt><span>Nome</span></dt>
+        <dd>
+            <span>{{vm.medico.nome}}</span>
+        </dd>
+        <dt><span>Especialidade</span></dt>
+        <dd>
+            <span>{{vm.medico.especialidade}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="medico-detail.edit({id:vm.medico.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

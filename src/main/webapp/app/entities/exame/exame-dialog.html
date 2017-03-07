@@ -1,0 +1,82 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myExameLabel">Create or edit a Exame</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.exame.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.exame.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="field_nome"
+                    ng-model="vm.exame.nome"
+                    required/>
+            <div ng-show="editForm.nome.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nome.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_laudo">Laudo</label>
+            <input type="text" class="form-control" name="laudo" id="field_laudo"
+                    ng-model="vm.exame.laudo"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_dataSolicitacao">Data Solicitacao</label>
+                <div class="input-group">
+                    <input id="field_dataSolicitacao" type="text" class="form-control" name="dataSolicitacao" datetime-picker="{{dateformat}}" ng-model="vm.exame.dataSolicitacao" is-open="vm.datePickerOpenStatus.dataSolicitacao"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dataSolicitacao')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_dataLaudo">Data Laudo</label>
+                <div class="input-group">
+                    <input id="field_dataLaudo" type="text" class="form-control" name="dataLaudo" datetime-picker="{{dateformat}}" ng-model="vm.exame.dataLaudo" is-open="vm.datePickerOpenStatus.dataLaudo"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dataLaudo')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_atendimento">Atendimento</label>
+            <select class="form-control" id="field_atendimento" name="atendimento" ng-model="vm.exame.atendimentoId" ng-options="atendimento.id as atendimento.id for atendimento in vm.atendimentos"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_paciente">Paciente</label>
+            <select class="form-control" id="field_paciente" name="paciente" ng-model="vm.exame.pacienteId" ng-options="paciente.id as paciente.id for paciente in vm.pacientes"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_medico">Medico</label>
+            <select class="form-control" id="field_medico" name="medico" ng-model="vm.exame.medicoId" ng-options="medico.id as medico.id for medico in vm.medicos"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

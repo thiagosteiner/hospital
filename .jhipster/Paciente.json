@@ -1,0 +1,62 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "atendimento",
+            "otherEntityName": "atendimento",
+            "otherEntityRelationshipName": "paciente"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "exame",
+            "otherEntityName": "exame",
+            "otherEntityRelationshipName": "paciente"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "paciente",
+            "relationshipName": "medico",
+            "otherEntityName": "medico",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "paciente",
+            "relationshipName": "enfermeiro",
+            "otherEntityName": "enfermeiro",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "cpf",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "planoSaude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endereco",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170307050601",
+    "entityTableName": "paciente",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no"
+}

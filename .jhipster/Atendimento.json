@@ -1,0 +1,61 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "exame",
+            "otherEntityName": "exame",
+            "otherEntityRelationshipName": "atendimento"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "medico",
+            "otherEntityName": "medico",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "enfermeiro",
+            "otherEntityName": "enfermeiro",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "paciente",
+            "otherEntityName": "paciente",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prescricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipoAtendimento",
+            "fieldType": "TipoAtendimento",
+            "fieldValues": "EMERGENCIA,INTERNACAO,UTI,AMBULATORIO"
+        },
+        {
+            "fieldName": "classificacaoRisco",
+            "fieldType": "ClassificacaoRisco",
+            "fieldValues": "VERMELHO,LARANJA,AMARELO,VERDE,AZUL"
+        }
+    ],
+    "changelogDate": "20170307050601",
+    "entityTableName": "atendimento",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no"
+}

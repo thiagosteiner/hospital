@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Exame</span> {{vm.exame.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span>Nome</span></dt>
+        <dd>
+            <span>{{vm.exame.nome}}</span>
+        </dd>
+        <dt><span>Laudo</span></dt>
+        <dd>
+            <span>{{vm.exame.laudo}}</span>
+        </dd>
+        <dt><span>Data Solicitacao</span></dt>
+        <dd>
+            <span>{{vm.exame.dataSolicitacao | date:'medium'}}</span>
+        </dd>
+        <dt><span>Data Laudo</span></dt>
+        <dd>
+            <span>{{vm.exame.dataLaudo | date:'medium'}}</span>
+        </dd>
+        <dt><span>Atendimento</span></dt>
+        <dd>
+            <a ui-sref="atendimento-detail({id:vm.exame.atendimentoId})">{{vm.exame.atendimentoId}}</a>
+        </dd>
+        <dt><span>Paciente</span></dt>
+        <dd>
+            <a ui-sref="paciente-detail({id:vm.exame.pacienteId})">{{vm.exame.pacienteId}}</a>
+        </dd>
+        <dt><span>Medico</span></dt>
+        <dd>
+            <a ui-sref="medico-detail({id:vm.exame.medicoId})">{{vm.exame.medicoId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="exame-detail.edit({id:vm.exame.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>
